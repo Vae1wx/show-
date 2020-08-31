@@ -1,0 +1,59 @@
+{% extends "demo.html" %}
+{% block title %}
+    登录
+{% endblock title %}
+{% block content %}
+    <div class="containter">
+        <div class="col-xs-4 col-xs-offset-4">
+            <div class="pannel pannel-default">
+                <div class="pannel-heading">
+                    <h3 class="pannel-title"> 
+                        登录
+                    </h3>
+                </div>
+                <div class="pannel-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        {% for field in login_form %}
+                            {% if field.name == 'code' %}
+                            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                <div class="row">
+                                    <div class="col-xs-7">
+                                        
+                                        {{ field }}
+                                        <p class="text-danger">{{ field.errors.as_text }}</p>
+                                    </div>
+                                    <div class="col-xs-5">
+                                        <img src="{% url 'image_code' %}" id="image_code" title="点击更换图片">
+                                    </div>
+                                    
+                                </div>
+                            {% else %}
+                                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                {{ field }}
+                                <p class="text-danger">{{ field.errors.as_text }}</p>
+                            {% endif %}
+                        {% endfor %}
+                        
+                        <button type="button" id="send_verification_code" class="btn btn-default">
+                            <a href="{% url 'forget_password' %}" style="color: black; text-decoration: none;">忘记密码</a>
+                        </button>
+                        
+                        <input type="submit" value="登录" class="btn btn-primary pull-right">
+                        <div class="clearfix"></div>
+                        <span class="pull-left text-danger">{{ login_form.non_field_errors }}</span>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            $('#image_code').click(function () {
+                var OldSrc = $(this).attr('src');
+                $(this).attr('src', OldSrc + "?");
+            })
+        })
+    </script>
+{% endblock content %}

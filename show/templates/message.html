@@ -1,0 +1,144 @@
+{% extends 'demo.html' %}
+{% block title%}
+    情书页
+{% endblock %}
+{% load static %}
+{% load comment_tags %}
+{% load likes_tags %}
+{% block content %}
+    <script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+    <script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+    
+    <div class="comment-area">
+        <h3 class="comment-area-title">留言板</h3>
+        <br>
+     
+    <button type="button" id="back_top" class="back_top"><span class="glyphicon glyphicon-menu-up"></span></button>
+    <nav aria-label="...">
+        <ul class="pager">
+            {% if previous_letter %}
+              <li><a href="{% url 'letter_content' previous_letter.pk %}">上一篇</a></li>
+            {% else %}
+                <li>我是有头的</li>
+            {% endif %}
+            {% if next_letter %}
+              <li><a href="{% url 'letter_content' next_letter.pk %}">下一篇</a></li>
+            {% else %}
+                <li>我是有头的</li>
+            {% endif %}
+        </ul>
+    </nav>
+
+    <script type="text/javascript">
+    // 返回顶部
+        $(function () {
+                $('#back_top').click(function () {
+                    $('html,body').animate({ scrollTop: 0 }, 150);
+                });
+                $(window).scroll(function () {
+                    if ($(this).scrollTop() > 150) {
+                        $('#back_top').fadeIn(150);
+                    } else {
+                        $('#back_top').stop().fadeOut(150);
+                    }
+                }); scroll();
+            });
+        
+        function reply(reply_comment_id) {
+            // 设置值
+            $('#reply_comment_id').val(reply_comment_id);
+            var html = $("#comment_" + reply_comment_id).html();
+            $('#reply_content').html(html);
+            $('#reply_content_container').show();
+
+            $('html').animate({ scrollTop: $('#comment_form').offset().top - 60 }, 300, function () {
+                CKEDITOR.instances['id_text'].focus();
+            });
+        }
+        function numFormat(num) {
+            return ('00' + num).substr(-2);
+        }
+        function timeFormat(timestamp) {
+            var datetime = new Date(timestamp * 1000);
+            var year = datetime.getFullYear();
+            var month = numFormat(datetime.getMonth() + 1);
+            var day = numFormat(datetime.getDate());
+            var hour = numFormat(datetime.getHours());
+            var minute = numFormat(datetime.getMinutes());
+            var second = numFormat(datetime.getSeconds());
+            return year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second;
+        }
+        $("#comment_form").submit(function () {
+            // 判断是否为空
+            $("#comment_error").text('');
+            if (CKEDITOR.instances["id_text"].document.getBody().getText().trim() == '') {
+                $("#comment_error").text('评论内容不能为空');
+                return false;
+            }
+
+            // 更新数据到textarea
+            CKEDITOR.instances['id_text'].updateElement();
+
+            // 异步提交
+            $.ajax({
+                url: "{% url 'update_comment' %}",
+                type: 'POST',
+                data: $(this).serialize(),
+                cache: false,
+                success: function (data) {
+                    console.log(data);
+                    if (data['status'] == "SUCCESS") {
+                        if ($('#reply_comment_id').val() == '0') {
+                            // 插入评论
+                            var comment_html = '<div id="root_' + data['pk'] + '" class="comment"><span>' + data['username'] + '</span><span> (' + timeFormat(data['comment_time']) + ')：</span><div id="comment_' + data['pk'] + '">' + data['text'] + '</div><a href="javascript:reply(' + data['pk'] + ');">回复</a></div>';
+                            $("#comment_list").prepend(comment_html);
+                        } else {
+                            // 插入回复
+                            var reply_html = '<div class="reply"><span>' + data['username'] + '</span><span> (' + timeFormat(data['comment_time']) + ')</span><span> 回复 </span><span>' + data['reply_to'] + '：</span><div id="comment_' + data['pk'] + '">' + data['text'] + '</div><a href="javascript:reply(' + data['pk'] + ');">回复</a></div>';
+                            $("#root_" + data['root_pk']).append(reply_html);
+                        }
+
+                        // 清空编辑框的内容
+                        CKEDITOR.instances['id_text'].setData('');
+                        $('#reply_content_container').hide();
+                        $('#reply_comment_id').val('0');
+                        $('#no_comment').remove();
+                        $("#comment_error").text('评论成功');
+                    } else {
+                        // 显示错误信息
+                        $("#comment_error").text(data['message']);
+                    }
+                },
+                error: function (xhr) {
+                    console.log(xhr);
+                }
+            });
+            return false;
+        });
+        // 跳转滑动效果
+        if (window.location.hash) {
+                $("html").animate({
+                    scrollTop: $(window.location.hash).offset().top - 60
+                }, 500);
+            };
+        
+    </script>
+    <style>
+        .back_top {
+            position: fixed;
+            right: 15em;
+            bottom: 100px;
+            width: 3.5rem;
+            height: 3.5rem;
+            padding: 0;
+            margin: 0;
+            border: 0;
+            border-radius: 33%;
+            display: none;
+        }
+    
+        .back_top:focus {
+            outline: none;
+        }
+    </style>
+{% endblock %}

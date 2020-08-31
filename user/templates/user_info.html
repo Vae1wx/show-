@@ -1,0 +1,47 @@
+{% extends 'demo.html' %}
+{% block title%}
+    {{ user }}的资料
+{% endblock %}
+
+{% block content %}
+<div class="continer">
+    <div class="row">
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <div class="caption">
+                    <h2>{{ user }}</h2>
+                    <ul>
+                        <li>昵称：{{ user.get_nickname }}<a href="{% url 'change_nickname' %}?from={{ request.get_full_path }}">修改昵称</a></li>
+                        <li>
+                            {% if user.profile.avatar %}
+                                <p>头像</p> 
+                                <img src="/media/{{ user.profile.avatar }}" style="max-width: 20%; border-radius: 15%;" class="col-md-4">
+                                <form enctype="multipart/form-data" method="post" action="/user/avatar">
+                                    {% csrf_token %}
+                                    <br><br><input type="file" class="form-control-file" name="avatar" id="avatar">
+                                    <p class="help-block">选择文件，<button type="submit" value="上传头像">更新</button>您的头像</p>
+                                    
+                                </form>
+                            {% else %}
+                                <form enctype="multipart/form-data" method="post" action="/user/avatar">
+                                    {% csrf_token %}
+                                    <input type="file" class="form-control-file" name="avatar" id="avatar">
+                                    <button type="submit" value="上传头像">上传</button>
+                                </form>
+                            {% endif %}</li>
+                        <br>
+                        <li><a href="{% url 'change_password' %}">修改密码</a></li>
+                        <li>邮箱：{% if user.email %}{{ user.email }}{% else %}未绑定 <a href="{% url 'email' %}?from={{ request.get_full_path }}">绑定邮箱</a>{% endif %}
+                        </li>
+                        <li>上次登录时间：{{ user.last_login|date:'Y年m月d日 H:i:s a' }}</li>
+                        <li>show站生日：{{ user.date_joined|date:'Y年m月d日' }}</li>
+                    
+                    </ul>
+                    <p>...</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

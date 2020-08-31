@@ -1,0 +1,221 @@
+{% extends 'demo.html' %}
+{% block title%}
+    情书页
+{% endblock %}
+{% load static %}
+{% load comment_tags %}
+{% load likes_tags %}
+{% block content %}
+    <script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+    <script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+    <div style="text-align-last: center">
+        <h2>{{ loveletter.title }}</h2>
+        <br>
+        作者：{{ loveletter.writer }}<br>
+        <h3>{{ loveletter.school }}</h3><br>
+        <p style="line-break: anywhere; text-align-last: left; text-indent: 2em; line-height: 1.5em;">{{ loveletter.content|safe }}</p>
+         
+        发送时间：{{ loveletter.created_time }}
+        <p>最后更改时间：{{ loveletter.last_updated_time }}</p>
+        <div>
+            <a class="btn btn-danger" onclick="likeChange">支持！<span class="glyphicon glyphicon-heart" id="read_num">{% get_like_count loveletter %}</span></a>
+            <a class="btn btn-primary">踩一脚</a>
+        </div>
+        
+    </div>
+     <div class="row">
+        <div class="col-xs-10 col-xs-offset-1">
+            <div class="comment-area">
+                <h3 class="comment-area-title">提交评论</h3>
+                {% if user.is_authenticated %}
+                <form id="comment_form" action="{% url 'update_comment' %}" method="POST" style="overflow:hidden">
+                    <label>{{ user.username }}，欢迎评论~</label>
+                    <div id="reply_content_container" style="display:none;">
+                        <p id="reply_title">回复：</p>
+                        <div id="reply_content"></div>
+                    </div>
+                    {% csrf_token %}
+                    {% get_comment_form loveletter as comment_form %}
+                    {% for field in comment_form %}
+                        {{ field }}
+                    {% endfor %}
+                    <span id="comment_error" class="text-danger pull-left"></span>
+                    <input type="submit" value="评论" class="btn btn-primary pull-right">
+                </form>
+                {% else %}
+                您尚未登录，登录之后方可评论~
+                <a class="btn btn-primary" href="{% url 'login' %}?from={{ request.get_full_path }}">登录</a>
+                <span> or </span>
+                <a class="btn btn-danger" href="{% url 'register' %}?from={{ request.get_full_path }}">注册</a>
+                {% endif %}
+            </div>
+            
+            <div class="comment-area">
+                <h3 class="comment-area-title">评论列表</h3>
+                <p>[当前评论已经有：{% get_comment_count loveletter %}条啦。]</p>
+                <br>
+                <div id="comment_list">
+                    {% get_comment_list loveletter as comments %}
+                    {% for comment in comments %}
+                    <div id="root_{{ comment.pk }}" class="comment">
+                        <span>{{ comment.user.username }}</span>
+                        <span>({{ comment.comment_time|date:"Y-m-d H:i:s" }})：</span>
+                        <div class="clearfix"></div>
+                        <br>
+                        <div id="comment_{{ comment.pk }}">
+                            {{ comment.text|safe }}
+                        </div>
+                        <div class="reply_line">
+                            <a href="javascript:reply({{ comment.pk }});">回复</a>
+                        </div>
+            
+                        {% for reply in comment.root_comment.all %}
+                        <div class="reply">
+                            <span>{{ reply.user.username }}</span>
+                            <span>({{ reply.comment_time|date:"Y-m-d H:i:s" }})</span>
+                            <span>回复</span>
+                            <span>{{ reply.reply_to.username }}：</span>
+                            <div id="comment_{{ reply.pk }}">
+                                {{ reply.text|safe }}
+                            </div>
+                           
+                            <a href="javascript:reply({{ reply.pk }});">回复</a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% empty %}
+                    <span id="no_comment">暂无评论</span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <button type="button" id="back_top" class="back_top"><span class="glyphicon glyphicon-menu-up"></span></button>
+    <nav aria-label="...">
+        <ul class="pager">
+            {% if previous_letter %}
+              <li><a href="{% url 'letter_content' previous_letter.pk %}">上一篇</a></li>
+            {% else %}
+                <li>我是有头的</li>
+            {% endif %}
+            {% if next_letter %}
+              <li><a href="{% url 'letter_content' next_letter.pk %}">下一篇</a></li>
+            {% else %}
+                <li>我是有头的</li>
+            {% endif %}
+        </ul>
+    </nav>
+
+    <script type="text/javascript">
+    // 返回顶部
+        $(function () {
+                $('#back_top').click(function () {
+                    $('html,body').animate({ scrollTop: 0 }, 150);
+                });
+                $(window).scroll(function () {
+                    if ($(this).scrollTop() > 150) {
+                        $('#back_top').fadeIn(150);
+                    } else {
+                        $('#back_top').stop().fadeOut(150);
+                    }
+                }); scroll();
+            });
+        
+        function reply(reply_comment_id) {
+            // 设置值
+            $('#reply_comment_id').val(reply_comment_id);
+            var html = $("#comment_" + reply_comment_id).html();
+            $('#reply_content').html(html);
+            $('#reply_content_container').show();
+
+            $('html').animate({ scrollTop: $('#comment_form').offset().top - 60 }, 300, function () {
+                CKEDITOR.instances['id_text'].focus();
+            });
+        }
+        function numFormat(num) {
+            return ('00' + num).substr(-2);
+        }
+        function timeFormat(timestamp) {
+            var datetime = new Date(timestamp * 1000);
+            var year = datetime.getFullYear();
+            var month = numFormat(datetime.getMonth() + 1);
+            var day = numFormat(datetime.getDate());
+            var hour = numFormat(datetime.getHours());
+            var minute = numFormat(datetime.getMinutes());
+            var second = numFormat(datetime.getSeconds());
+            return year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second;
+        }
+        $("#comment_form").submit(function () {
+            // 判断是否为空
+            $("#comment_error").text('');
+            if (CKEDITOR.instances["id_text"].document.getBody().getText().trim() == '') {
+                $("#comment_error").text('评论内容不能为空');
+                return false;
+            }
+
+            // 更新数据到textarea
+            CKEDITOR.instances['id_text'].updateElement();
+
+            // 异步提交
+            $.ajax({
+                url: "{% url 'update_comment' %}",
+                type: 'POST',
+                data: $(this).serialize(),
+                cache: false,
+                success: function (data) {
+                    console.log(data);
+                    if (data['status'] == "SUCCESS") {
+                        if ($('#reply_comment_id').val() == '0') {
+                            // 插入评论
+                            var comment_html = '<div id="root_' + data['pk'] + '" class="comment"><span>' + data['username'] + '</span><span> (' + timeFormat(data['comment_time']) + ')：</span><div id="comment_' + data['pk'] + '">' + data['text'] + '</div><a href="javascript:reply(' + data['pk'] + ');">回复</a></div>';
+                            $("#comment_list").prepend(comment_html);
+                        } else {
+                            // 插入回复
+                            var reply_html = '<div class="reply"><span>' + data['username'] + '</span><span> (' + timeFormat(data['comment_time']) + ')</span><span> 回复 </span><span>' + data['reply_to'] + '：</span><div id="comment_' + data['pk'] + '">' + data['text'] + '</div><a href="javascript:reply(' + data['pk'] + ');">回复</a></div>';
+                            $("#root_" + data['root_pk']).append(reply_html);
+                        }
+
+                        // 清空编辑框的内容
+                        CKEDITOR.instances['id_text'].setData('');
+                        $('#reply_content_container').hide();
+                        $('#reply_comment_id').val('0');
+                        $('#no_comment').remove();
+                        $("#comment_error").text('评论成功');
+                    } else {
+                        // 显示错误信息
+                        $("#comment_error").text(data['message']);
+                    }
+                },
+                error: function (xhr) {
+                    console.log(xhr);
+                }
+            });
+            return false;
+        });
+        // 跳转滑动效果
+        if (window.location.hash) {
+                $("html").animate({
+                    scrollTop: $(window.location.hash).offset().top - 60
+                }, 500);
+            };
+        
+    </script>
+    <style>
+        .back_top {
+            position: fixed;
+            right: 15em;
+            bottom: 100px;
+            width: 3.5rem;
+            height: 3.5rem;
+            padding: 0;
+            margin: 0;
+            border: 0;
+            border-radius: 33%;
+            display: none;
+        }
+    
+        .back_top:focus {
+            outline: none;
+        }
+    </style>
+{% endblock %}

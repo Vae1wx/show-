@@ -1,0 +1,58 @@
+{% extends 'demo.html' %}
+{% block title%}
+    已发布的内容
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-9 clo-xs-12 col-sm-8 col-lg-10">
+            <div class="panel panel-default">
+                <div class="paner_heading">
+                    <h3>我发布的内容</h3>
+                </div>
+                <br>
+                {% for letter in sent_list %}
+                <h3>
+                    <a href="{% url 'letter_content' letter.pk %}">
+                        {{ letter.title }}
+                    </a>
+                </h3>
+                作者：{{ letter.writer }}<br>
+                学校：{{ letter.school }} <br>
+                {{ letter.like_name }}<br>
+                创建时间{{ letter.created_time|date:'Y-m-d' }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <!-- Button trigger modal -->
+                
+                <a class="glyphicon glyphicon-pencil" href="{% url 'revise_letter' letter.pk %}"></a>
+                <a type="button" class="glyphicon glyphicon-trash" data-toggle="modal" data-target="#myModal">
+                </a>
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                        aria-hidden="true">&times;</span></button>
+                                <h3 class="modal-title" id="myModalLabel">提示：</h3>
+                            </div>
+                            <div class="modal-body">
+                                <strong style="font-size: large;">确认要删除吗？</strong> 
+                                <p style="text-align: right;">————删除后不可恢复</p> 
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger"><a href="{% url 'delete_letter' letter.pk %}" style="color:black; text-decoration: none;">删除</a></button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                    <p>您还未发布任何内容</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

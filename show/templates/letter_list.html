@@ -1,0 +1,139 @@
+{% extends 'demo.html' %}
+{% block title%}
+    表白广场
+{% endblock %}
+
+{% block content %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 clo-xs-12 col-sm-8 col-lg-10">
+                <div class="panel panel-default">
+                    <div class="paner_heading">
+                        <h3 style="margin-left: 10px;">表白广场</h3>
+                    </div>
+                    {% for letter in letters %}
+                    <div class="media">
+                        <div class="media-left"></div>
+                        <div class="media-body">
+                            <h4 class="media-heading">
+                                <a href="{% url 'letter_content' letter.pk %}">
+                                {{ letter.title }}
+                                </a>
+                            </h4>
+                            作者：{{ letter.writer }}<br>
+                            学校：{{ letter.school }} <br>
+                            {{ letter.like_name }}<br>
+                            <i class="fas fa-eye" style="color: lightskyblue;"></i> {{ letter.read_num }}
+                            <i class="fas fa-clock" style="color: pink;"></i>{{ letter.created_time|date:'Y-m-d' }}
+                            
+                        </div>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    {% empty %}
+                        <p>还没人展示自己的爱</p>
+                    {% endfor %}
+                    
+                    <!-- 分页器 -->
+                    <div style="text-align: center;">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                            <li>
+                                <a href="?page=1" aria-label="首页">
+                                    <span aria-hidden="true">首页</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                {% if letters.has_previous %}
+                                    <a href="?page={{ letters.previous_page_number }}" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a> 
+                                {% else %}
+                                    <span aria-hidden="true">&laquo;</span>
+                                {% endif %}
+                            </li>
+                            {% for page_num in page_range %}
+                                {% if page_num == letters.number %}
+                                    <li class="active"><span>{{ page_num }}</span></li>
+                                {% else %}
+                                    <li><a href="?page={{ page_num }}">{{ page_num }}</a></li>
+                                {% endif %}
+                            {% endfor %}
+                            <li>
+                                {% if letters.has_next %}
+                                    <a href="?page={{ letters.next_page_number }}" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                {% else %}
+                                    <span aria-hidden="true">&raquo;</span>
+                                {% endif %}
+                            </li>
+                            <li>
+                                <a href="?page={{ last_page }}" aria-label="尾页">
+                                    <span aria-hidden="true">尾页</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <p>一共有{{ letters.paginator.count }}篇博客，当前第{{ letters.number }}页，共{{ letters.paginator.num_pages }}页
+                        </p>
+                    </nav>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-md-3 col-sm-4 col-lg-2" style="border: groove;">
+                <div class="hot_data" style="text-align: center;">
+                    <div class="paner_heading">
+                        <h3>热门点击</h3>
+                    </div>
+                        {% for letter in hot_loveletter %}
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <a href="{% url 'letter_content' letter.pk %}">{{ letter.title|slice:'15'}} </a>
+                                </div>
+                                <div class="panel-footer">点击数：{{ letter.read_num}}</div>
+                            </div>
+                    {% empty %}
+                        <p>暂时还没有热门点击</p>
+                    {% endfor %}
+                </div>
+                
+            </div>
+            <button type="button" id="back_top" class="back_top" ><span class="glyphicon glyphicon-menu-up"></span></button>
+            
+        </div>
+    </div>
+    
+    <script>
+        $(function () {
+            $('#back_top').click(function () {
+                $('html,body').animate({scrollTop: 0}, 150);
+            });
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 150) {
+                    $('#back_top').fadeIn(150);
+                } else {
+                    $('#back_top').stop().fadeOut(150);
+                }
+            });scroll();
+        })
+    </script>
+    <style>
+        .back_top {
+            position: fixed;
+            right: 15em;
+            bottom: 100px;
+            width: 3.5rem;
+            height: 3.5rem;
+            padding: 0;
+            margin: 0;
+            border: 0;
+            border-radius: 33%;
+            display: none;
+        }
+        .back_top:focus {
+            outline: none;
+        }
+    </style>
+{% endblock %}

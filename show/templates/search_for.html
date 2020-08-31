@@ -1,0 +1,85 @@
+{% extends 'demo.html' %}
+{% block title%}
+表白广场
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-9 clo-xs-12 col-sm-8 col-lg-10">
+            <div class="panel panel-default">
+                <div class="paner_heading">
+                    <h3>搜索结果</h3>
+                    <h3>['{{ keyword }}'] 的查找结果：</h3>
+                    <h4>共{{ returned.paginator.count }}篇</h4>
+                </div>
+                {% for letter in returned %}
+                <div class="media">
+                    <div class="media-left"></div>
+                    <div class="media-body">
+                        <h4 class="media-heading">
+                            <a href="{% url 'letter_content' letter.pk %}">
+                                {{ letter.title }}
+                            </a>
+                        </h4>
+                        作者：{{ letter.writer }}<br>
+                        学校：{{ letter.school }} <br>
+                        {{ letter.like_name }}<br>
+                        创建时间{{ letter.created_time|date:'Y-m-d' }}
+                    </div>
+                </div>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {% empty %}
+                <p>没有搜到您想要的结果，要不换个关键词试试？</p>
+                {% endfor %}
+
+                <!-- 分页器 -->
+                <div style="text-align: center;">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                            <li>
+                                <a href="?page=1" aria-label="首页">
+                                    <span aria-hidden="true">首页</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                {% if returned.has_previous %}
+                                <a href="?page={{ returned.previous_page_number }}" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                                {% else %}
+                                <span aria-hidden="true">&laquo;</span>
+                                {% endif %}
+                            </li>
+                            {% for page_num in page_range %}
+                            {% if page_num == returned.number %}
+                            <li class="active"><span>{{ page_num }}</span></li>
+                            {% else %}
+                            <li><a href="?page={{ page_num }}">{{ page_num }}</a></li>
+                            {% endif %}
+                            {% endfor %}
+                            <li>
+                                {% if returned.has_next %}
+                                <a href="?page={{ returned.next_page_number }}" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                                {% else %}
+                                <span aria-hidden="true">&raquo;</span>
+                                {% endif %}
+                            </li>
+                            <li>
+                                <a href="?page={{ last_page }}" aria-label="尾页">
+                                    <span aria-hidden="true">尾页</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <p>一共有{{ returned.paginator.count }}篇博客，当前第{{ returned.number }}页，共{{ returned.paginator.num_pages }}页
+                        </p>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
