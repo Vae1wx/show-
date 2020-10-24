@@ -9,9 +9,8 @@ from .forms import WriteForm
 from notifications.models import Notification
 from .models import LoveLetter  
 from .static.words import words
-from django.db.models import Q
+from django.db.models import Q, F
 import markdown
-
 # Create your views here.
 
 def show_home(request):
@@ -62,27 +61,36 @@ def letter_list(request):
 def letter_content(request, loveletter_pk):
     context = {}
     loveletter = get_object_or_404(LoveLetter, pk=loveletter_pk)
-    loveletter.content = markdown.markdown(loveletter.content,
-                                           extensions=[
-                                               'markdown.extensions.extra',
-                                               'markdown.extensions.codehilite',
-                                               'markdown.extensions.toc',
-                                           ])
+    md = markdown.Markdown(extensions=[
+        'markdown.extensions.extra',
+        'markdown.extensions.codehilite',
+        'markdown.extensions.toc',
+    ])
+    loveletter.body = md.convert(loveletter.content)
+
     if not request.COOKIES.get('loveletter_%s_readed' % loveletter_pk):
         loveletter.read_num += 1
         loveletter.save()
     # update_fields=[]指定了数据库只更新total_views字段，优化执行效率。
     loveletter.save(update_fields=['read_num'])
     context['loveletter'] = loveletter
+    # context['toc'] = md.toc   不需要这个功能了
     context['previous_letter'] = LoveLetter.objects.filter(
         created_time__gt=loveletter.created_time).last()
     context['next_letter'] = LoveLetter.objects.filter(
         created_time__lt=loveletter.created_time).first()
     response = render(request, 'loveletter.html', context)
-    response.set_cookie('loveletter_%s_readed' % loveletter_pk, 'true', max_age=60)
+    # 点赞数
+    if request.COOKIES.get('like_num') == 'true':
+        loveletter.like_num -= 1
+        
+    elif request.COOKIES.get('like_num') == 'false':
+        loveletter.like_num += 1
+    loveletter.save()
+    loveletter.save(update_fields=['like_num'])
+    response.set_cookie('loveletter_%s_readed' %
+                        loveletter_pk, 'true', max_age=60*60*24)
     return response
-
-
 
 # write
 def show_love(request):
@@ -128,11 +136,16 @@ def revise_letter(request, loveletter_pk):
     # 传入修改文章的表单
     form = WriteForm(data, request.POST, user=request.user)
     # 提交新的内容
-    title = request.POST.get('title')
-    school = request.POST.get('school')
-    like_name = request.POST.get('like_name')
-    content = request.POST.get('content')
-    loveletter.save()
+    print(request.POST.get('title'))
+    if request.method == "POST":
+        loveletter.title = request.POST.get('title')
+        loveletter.school = request.POST.get('school')
+        loveletter.like_name = request.POST.get('like_name')
+        loveletter.content = request.POST.get('content')
+        # loveletter.title = title 正确做法会报错，暂时先不管了。
+        loveletter.save()
+    
+        
     context = {'form': form}
     return render(request, 'revise_letter.html', context)
 def sent(request):
@@ -147,9 +160,8 @@ def delete_letter(request, loveletter_pk):
     user_id = request.session.get('_auth_user_id')
     delete_letter = LoveLetter.objects.filter(
         writer=user_id, pk=loveletter_pk).delete()
-    context = {}
-    context['delete_letter'] = delete_letter
-    return HttpResponse('success')
+    
+    return redirect("sent")
 
 
 # 站内搜索
@@ -181,7 +193,7 @@ def search_for(request):
 def my_notifications(request):
     return render(request, 'my_notifications.html')
 
-def mark_readed(Request):
+def mark_readed(request):
     Notification.objects.all().mark_all_as_read()
     return redirect('my_notifications')
 
@@ -221,8 +233,12 @@ def test(request):
     return HttpResponse('ok')
 
 
-
-
-
+def zzz(request, loveletter_pk):
+    loveletter = get_object_or_404(LoveLetter, pk=loveletter_pk)
+    if request.COOKIES.get('is_like'):
+        loveletter.like_num += 1
+        loveletter.save()
+        print(123)
+    return HttpResponse(123)
 def message(request):
     return render(request, 'message.html')

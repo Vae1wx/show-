@@ -1,0 +1,117 @@
+{% extends 'demo.html' %}
+{% block title%}
+    情书页
+{% endblock %}
+{% load static %}
+{% load comment_tags %}
+{% load likes_tags %}
+{% block content %}
+    
+    <script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+    <script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+    <script src="{% static 'sticky_sidebar/jquery.sticky-sidebar.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static "code.css" %}">
+    <div class="row" style="margin-left: 0px; margin-right: 0px;">
+        <div class="col-md-3 col-sm-4 col-lg-2 ">
+                <div id="sidebar" class="sidebar">
+                    <div class="sidebar__inner" style="border: groove;">
+                        <div class="paner_heading">
+                            <h3>目录</h3>
+                            {{ blog.toc|safe }}
+                        </div>
+                    </div>
+                </div>
+        
+        </div>
+        <div class="col-md-9 clo-xs-12 col-sm-8 col-lg-10" id="q" style="padding-left: 10%;padding-right:10%; " >
+            <h2>{{ blog.title }}</h2>
+            <a class="glyphicon glyphicon-heart" onclick="likeChange()" id="like_num">{{ loveletter.like_num }}</a>
+            <div class="blog_info" style="background-color: ghostwhite;padding-left: 3em;">
+                    <div style="float: left;margin-right: 15px;">
+                        <i class="fas fa-book"></i>【{{ blog.blog_type }}】</div>
+                    <div style="float: left;margin-right: 15px;">
+                        <i class="far fa-calendar-check"></i>
+                        发布时间：{{ blog.created_time }}
+                    </div>
+                    <span class="calendar-check"></span>
+                    <div style="float: left;margin-right: 15px;">
+                        <i class="far fa-calendar-check"></i>
+                        更新日期{{ blog.last_updated_time }}
+                    </div>
+                    
+            </div>
+            <hr class="clearfix">
+            <div>
+             <div class="owl-item active" style="width: 628.667px; margin-right: 10px;">
+            <div class="testimonial">
+          </div>
+        </div>
+     
+            <div style="padding: 3%;">
+                <main class="post-container content" style="min-height: 453px;max-width: 1250px;margin: 0 auto;min-height: 453px;">
+                    <div class="row">
+                        <div id="main-content" class="col s12 m12 l9">
+                            <div id="artDetail">
+                                <div class="card"
+                                    style="box-shadow: 0 10px 35px 2px rgba(0,0,0,.15),0 5px 15px rgba(0,0,0,.07),0 2px 5px -5px rgba(0,0,0,.1)!important;border-radius: 10px;">
+                                    <div class="card-content article-info" style="padding: 20px 30px 1px 40px;">
+                                        <div class="post-info">
+                                            <p style="line-break: anywhere; text-align-last: left; text-indent: 2em; line-height: 1.5em;">
+                                            
+                                                {{ blog.body|safe }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+               
+            </div> 
+                <br>
+                
+            </div>
+            
+        </div>
+    </div>
+   
+   
+    <button type="button" id="back_top" class="back_top"><span class="glyphicon glyphicon-menu-up"></span></button>
+    <nav aria-label="...">
+        <ul class="pager">
+            {% if previous_blog %}
+              <li><a href="{% url 'blog_detail' previous_blog.pk %}">上一篇</a></li>
+            {% else %}
+                <li>我是有头的</li>
+            {% endif %}
+            {% if next_blog %}
+              <li><a href="{% url 'blog_detail' next_blog.pk %}">下一篇</a></li>
+            {% else %}
+                <li>我是有头的</li>
+            {% endif %}
+        </ul>
+    </nav>
+    
+    <script type="text/javascript" src="{% static "blog.js" %}"></script>
+    <style>
+        /* 返回顶部 */
+        .back_top {
+            position: fixed;
+            right: 15em;
+            bottom: 100px;
+            width: 3.5rem;
+            height: 3.5rem;
+            padding: 0;
+            margin: 0;
+            border: 0;
+            border-radius: 33%;
+            display: none;
+            background-color: aquamarine;
+        }
+    
+        .back_top:focus {
+            outline: none;
+        }
+    </style>
+{% endblock %}

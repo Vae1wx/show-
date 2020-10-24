@@ -2,3 +2,5 @@ db.sqlite3
 settings.py
 __pycache__/
 static/
+collected_static/
+requirements.txt

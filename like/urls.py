@@ -3,5 +3,6 @@ from . import views
 
 
 urlpatterns = [
-    path('increase_likes', views.increase_likes, name='increase_likes')
+    path('dz',views.dz,name='dz'),
+    path('<int:loveletter_pk>/dz/', views.dz, name='dz'),
 ]

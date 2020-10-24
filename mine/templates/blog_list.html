@@ -10,22 +10,19 @@
             <div class="col-md-9 clo-xs-12 col-sm-8 col-lg-10">
                 <div class="panel panel-default">
                     <div class="paner_heading">
-                        <h3 style="margin-left: 10px;">表白广场</h3>
+                        <h3 style="margin-left: 10px;">薛定谔的博客</h3>
                     </div>
-                    {% for letter in letters %}
+                    {% for blog in blogs %}
                     <div class="media">
                         <div class="media-left"></div>
                         <div class="media-body">
                             <h4 class="media-heading">
-                                <a href="{% url 'letter_content' letter.pk %}">
-                                {{ letter.title }}
+                                <a href="{% url 'blog_detail' blog.pk %}">
+                                {{ blog.title }}
                                 </a>
                             </h4>
-                            作者：{{ letter.writer }}<br>
-                            学校：{{ letter.school }} <br>
-                            {{ letter.like_name }}<br>
-                            <i class="fas fa-eye" style="color: lightskyblue;"></i> {{ letter.read_num }}
-                            <i class="fas fa-clock" style="color: pink;"></i>{{ letter.created_time|date:'Y-m-d' }}
+                            <i class="fas fa-eye" style="color: lightskyblue;"></i> {{ blog.read_num }}
+                            <i class="fas fa-clock" style="color: pink;"></i>{{ blog.created_time|date:'Y-m-d' }}
                             
                         </div>
                     </div>
@@ -45,8 +42,8 @@
                             </li>
 
                             <li>
-                                {% if letters.has_previous %}
-                                    <a href="?page={{ letters.previous_page_number }}" aria-label="Previous">
+                                {% if blog.has_previous %}
+                                    <a href="?page={{ blog.previous_page_number }}" aria-label="Previous">
                                         <span aria-hidden="true">&laquo;</span>
                                     </a> 
                                 {% else %}
@@ -54,15 +51,15 @@
                                 {% endif %}
                             </li>
                             {% for page_num in page_range %}
-                                {% if page_num == letters.number %}
+                                {% if page_num == blog.number %}
                                     <li class="active"><span>{{ page_num }}</span></li>
                                 {% else %}
                                     <li><a href="?page={{ page_num }}">{{ page_num }}</a></li>
                                 {% endif %}
                             {% endfor %}
                             <li>
-                                {% if letters.has_next %}
-                                    <a href="?page={{ letters.next_page_number }}" aria-label="Next">
+                                {% if blog.has_next %}
+                                    <a href="?page={{ blog.next_page_number }}" aria-label="Next">
                                         <span aria-hidden="true">&raquo;</span>
                                     </a>
                                 {% else %}
@@ -75,7 +72,7 @@
                                 </a>
                             </li>
                         </ul>
-                        <p>一共有{{ letters.paginator.count }}篇博客，当前第{{ letters.number }}页，共{{ letters.paginator.num_pages }}页
+                        <p>一共有{{ blog.paginator.count }}篇博客，当前第{{ blog.number }}页，共{{ blog.paginator.num_pages }}页
                         </p>
                     </nav>
                     </div>
@@ -87,13 +84,13 @@
                     <div class="paner_heading">
                         <h3>热门点击</h3>
                     </div>
-                        {% for letter in hot_loveletter %}
+                        {% for blog in hot_loveletter %}
                             <div class="panel panel-default">
                                 <div class="panel-body">
-                                    <a href="{% url 'letter_content' letter.pk %}">{{ letter.title|slice:'15'}} </a>
+                                    <a href="{% url 'letter_content' blog.pk %}">{{ blog.title|slice:'15'}} </a>
                                 </div>
-                                <div class="panel-footer">点击数：{{ letter.read_num}}</div>
-                                <div>点赞{{ letter.like_num }}</div>
+                                <div class="panel-footer">点击数：{{ blog.read_num}}</div>
+                                <div>点赞{{ blog.like_num }}</div>
                             </div>
                     {% empty %}
                         <p>暂时还没有热门点击</p>

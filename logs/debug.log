@@ -1,11 +1,896 @@
-"GET /notifications/api/unread_list/?max=5 HTTP/1.1" 200 38
-"GET /notifications/api/unread_list/?max=5 HTTP/1.1" 200 38
-D:\python\mywork\diango\Django_test\SE_test\mysite\mysite\settings.py changed, reloading.
-Watching for file changes with StatReloader
-"GET /notifications/api/unread_list/?max=5 HTTP/1.1" 200 38
-"GET /notifications/api/unread_list/?max=5 HTTP/1.1" 200 38
-"GET /notifications/api/unread_list/?max=5 HTTP/1.1" 200 38
-"GET /notifications/api/unread_list/?max=5 HTTP/1.1" 200 38
-"GET /notifications/api/unread_list/?max=5 HTTP/1.1" 200 38
-"GET /notifications/api/unread_list/?max=5 HTTP/1.1" 200 38
-D:\python\mywork\diango\Django_test\SE_test\mysite\mysite\settings.py changed, reloading.
+ERROR 2020-10-12 13:07:43,598 log 16668 8996 Internal Server Error: /mine/blog_detail/2/
+Traceback (most recent call last):
+  File "D:\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\base.py", line 97, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\detail.py", line 107, in get
+    context = self.get_context_data(object=self.object)
+  File "D:\python\mywork\diango\Django_test\SE_test\mysite\mine\views.py", line 30, in get_context_data
+    context["content"] = markdown.markdown(Blog.objects.all().content,
+AttributeError: 'QuerySet' object has no attribute 'content'
+ERROR 2020-10-12 13:08:05,240 log 11492 12620 Internal Server Error: /mine/blog_detail/2/
+Traceback (most recent call last):
+  File "D:\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\base.py", line 97, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\detail.py", line 107, in get
+    context = self.get_context_data(object=self.object)
+  File "D:\python\mywork\diango\Django_test\SE_test\mysite\mine\views.py", line 30, in get_context_data
+    context["content"] = markdown.markdown(Blog.objects.all().title,
+AttributeError: 'QuerySet' object has no attribute 'title'
+ERROR 2020-10-12 13:08:16,937 log 8148 1468 Internal Server Error: /mine/blog_detail/2/
+Traceback (most recent call last):
+  File "D:\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\base.py", line 97, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\detail.py", line 107, in get
+    context = self.get_context_data(object=self.object)
+  File "D:\python\mywork\diango\Django_test\SE_test\mysite\mine\views.py", line 33, in get_context_data
+    'markdown.extensions.codehilite',
+  File "D:\python\lib\site-packages\markdown\core.py", line 386, in markdown
+    return md.convert(text)
+  File "D:\python\lib\site-packages\markdown\core.py", line 247, in convert
+    if not source.strip():
+AttributeError: 'QuerySet' object has no attribute 'strip'
+ERROR 2020-10-12 13:08:43,120 log 10516 15384 Internal Server Error: /mine/blog_detail/2/
+Traceback (most recent call last):
+  File "D:\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\base.py", line 97, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\detail.py", line 107, in get
+    context = self.get_context_data(object=self.object)
+  File "D:\python\mywork\diango\Django_test\SE_test\mysite\mine\views.py", line 30, in get_context_data
+    context["content"] = markdown.markdown(Blog.objects.all())
+  File "D:\python\lib\site-packages\markdown\core.py", line 386, in markdown
+    return md.convert(text)
+  File "D:\python\lib\site-packages\markdown\core.py", line 247, in convert
+    if not source.strip():
+AttributeError: 'QuerySet' object has no attribute 'strip'
+ERROR 2020-10-12 13:09:23,756 log 15228 10416 Internal Server Error: /mine/blog_detail/2/
+Traceback (most recent call last):
+  File "D:\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\base.py", line 97, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\detail.py", line 107, in get
+    context = self.get_context_data(object=self.object)
+  File "D:\python\mywork\diango\Django_test\SE_test\mysite\mine\views.py", line 30, in get_context_data
+    context["content"] = markdown.markdown(Blog.objects.all())
+  File "D:\python\lib\site-packages\markdown\core.py", line 386, in markdown
+    return md.convert(text)
+  File "D:\python\lib\site-packages\markdown\core.py", line 247, in convert
+    if not source.strip():
+AttributeError: 'QuerySet' object has no attribute 'strip'
+ERROR 2020-10-12 13:15:46,869 log 13292 1872 Internal Server Error: /mine/blog_detail/2/
+Traceback (most recent call last):
+  File "D:\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\base.py", line 97, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\detail.py", line 107, in get
+    context = self.get_context_data(object=self.object)
+TypeError: get_context_data() missing 1 required positional argument: 'blog_pk'
+ERROR 2020-10-12 13:19:37,408 log 15064 14992 Internal Server Error: /mine/blog_detail/2/
+Traceback (most recent call last):
+  File "D:\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\base.py", line 97, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\detail.py", line 107, in get
+    context = self.get_context_data(object=self.object)
+TypeError: get_context_data() missing 1 required positional argument: 'blog_pk'
+ERROR 2020-10-12 13:32:08,677 log 4876 2232 Internal Server Error: /mine/blog_detail/2/
+Traceback (most recent call last):
+  File "D:\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\base.py", line 97, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\detail.py", line 107, in get
+    context = self.get_context_data(object=self.object)
+TypeError: get_context_data() missing 1 required positional argument: 'blog_pk'
+ERROR 2020-10-12 13:32:12,627 log 4876 2232 Internal Server Error: /mine/blog_detail/2/
+Traceback (most recent call last):
+  File "D:\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\base.py", line 97, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\detail.py", line 107, in get
+    context = self.get_context_data(object=self.object)
+TypeError: get_context_data() missing 1 required positional argument: 'blog_pk'
+ERROR 2020-10-12 13:32:25,851 log 15200 5564 Internal Server Error: /mine/blog_detail/2/
+Traceback (most recent call last):
+  File "D:\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\base.py", line 97, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\detail.py", line 107, in get
+    context = self.get_context_data(object=self.object)
+TypeError: get_context_data() missing 1 required positional argument: 'blog_pk'
+ERROR 2020-10-12 13:32:34,555 log 9144 1256 Internal Server Error: /mine/blog_detail/2/
+Traceback (most recent call last):
+  File "D:\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\base.py", line 97, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\detail.py", line 107, in get
+    context = self.get_context_data(object=self.object)
+  File "D:\python\mywork\diango\Django_test\SE_test\mysite\mine\views.py", line 32, in get_context_data
+    context["blog"] =  get_object_or_404(Blog)
+  File "D:\python\lib\site-packages\django\shortcuts.py", line 76, in get_object_or_404
+    return queryset.get(*args, **kwargs)
+  File "D:\python\lib\site-packages\django\db\models\query.py", line 422, in get
+    num if not limit or num < limit else 'more than %s' % (limit - 1),
+mine.models.Blog.MultipleObjectsReturned: get() returned more than one Blog -- it returned 2!
+ERROR 2020-10-12 13:32:51,083 log 14404 6528 Internal Server Error: /mine/blog_detail/2/
+Traceback (most recent call last):
+  File "D:\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\base.py", line 97, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\detail.py", line 107, in get
+    context = self.get_context_data(object=self.object)
+  File "D:\python\mywork\diango\Django_test\SE_test\mysite\mine\views.py", line 32, in get_context_data
+    context["blog"] =  get_object_or_404(Blog, pk=blog_pk)
+NameError: name 'blog_pk' is not defined
+ERROR 2020-10-12 13:37:34,127 log 12304 17952 Internal Server Error: /mine/blog_detail/2/
+Traceback (most recent call last):
+  File "D:\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\base.py", line 97, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\detail.py", line 106, in get
+    self.object = self.get_object()
+  File "D:\python\mywork\diango\Django_test\SE_test\mysite\mine\views.py", line 43, in get_object
+    obj.last_accessed = timezone.now()
+NameError: name 'timezone' is not defined
+ERROR 2020-10-12 14:05:31,383 log 7972 15084 Internal Server Error: /mine/blog_detail/2/
+Traceback (most recent call last):
+  File "D:\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\base.py", line 97, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\detail.py", line 106, in get
+    self.object = self.get_object()
+  File "D:\python\lib\site-packages\django\views\generic\detail.py", line 47, in get_object
+    "pk or a slug in the URLconf." % self.__class__.__name__
+AttributeError: Generic detail view BlogDetailView must be called with either an object pk or a slug in the URLconf.
+ERROR 2020-10-12 14:06:05,954 log 14900 7044 Internal Server Error: /mine/blog_detail/2/
+Traceback (most recent call last):
+  File "D:\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\base.py", line 97, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\detail.py", line 106, in get
+    self.object = self.get_object()
+  File "D:\python\lib\site-packages\django\views\generic\detail.py", line 47, in get_object
+    "pk or a slug in the URLconf." % self.__class__.__name__
+AttributeError: Generic detail view BlogDetailView must be called with either an object pk or a slug in the URLconf.
+ERROR 2020-10-12 14:06:42,707 log 3456 15268 Internal Server Error: /mine/blog_detail/2/
+Traceback (most recent call last):
+  File "D:\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\base.py", line 97, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\detail.py", line 106, in get
+    self.object = self.get_object()
+  File "D:\python\lib\site-packages\django\views\generic\detail.py", line 47, in get_object
+    "pk or a slug in the URLconf." % self.__class__.__name__
+AttributeError: Generic detail view BlogDetailView must be called with either an object pk or a slug in the URLconf.
+ERROR 2020-10-12 14:09:23,061 log 9516 18296 Internal Server Error: /mine/blog_detail/2/
+Traceback (most recent call last):
+  File "D:\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\base.py", line 97, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\detail.py", line 106, in get
+    self.object = self.get_object()
+  File "D:\python\mywork\diango\Django_test\SE_test\mysite\mine\views.py", line 31, in get_object
+    obj = super(BlogDetailView, self).get_object()
+  File "D:\python\lib\site-packages\django\views\generic\detail.py", line 47, in get_object
+    "pk or a slug in the URLconf." % self.__class__.__name__
+AttributeError: Generic detail view BlogDetailView must be called with either an object pk or a slug in the URLconf.
+ERROR 2020-10-12 14:11:11,463 log 12736 16020 Internal Server Error: /mine/blog_detail/2/
+Traceback (most recent call last):
+  File "D:\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 145, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 143, in _get_response
+    response = response.render()
+  File "D:\python\lib\site-packages\django\template\response.py", line 105, in render
+    self.content = self.rendered_content
+  File "D:\python\lib\site-packages\django\template\response.py", line 83, in rendered_content
+    return template.render(context, self._request)
+  File "D:\python\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "D:\python\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "D:\python\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "D:\python\lib\site-packages\django\template\base.py", line 936, in render
+    bit = node.render_annotated(context)
+  File "D:\python\lib\site-packages\django\template\base.py", line 903, in render_annotated
+    return self.render(context)
+  File "D:\python\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "D:\python\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "D:\python\lib\site-packages\django\template\base.py", line 936, in render
+    bit = node.render_annotated(context)
+  File "D:\python\lib\site-packages\django\template\base.py", line 903, in render_annotated
+    return self.render(context)
+  File "D:\python\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "D:\python\lib\site-packages\django\template\base.py", line 936, in render
+    bit = node.render_annotated(context)
+  File "D:\python\lib\site-packages\django\template\base.py", line 903, in render_annotated
+    return self.render(context)
+  File "D:\python\lib\site-packages\django\template\library.py", line 192, in render
+    output = self.func(*resolved_args, **resolved_kwargs)
+  File "D:\python\mywork\diango\Django_test\SE_test\mysite\comments\templatetags\comment_tags.py", line 12, in get_comment_count
+    content_type = ContentType.objects.get_for_model(obj)
+  File "D:\python\lib\site-packages\django\contrib\contenttypes\models.py", line 40, in get_for_model
+    opts = self._get_opts(model, for_concrete_model)
+  File "D:\python\lib\site-packages\django\contrib\contenttypes\models.py", line 27, in _get_opts
+    model = model._meta.concrete_model
+AttributeError: 'str' object has no attribute '_meta'
+ERROR 2020-10-12 14:11:14,437 log 12736 16020 Internal Server Error: /mine/blog_detail/2/
+Traceback (most recent call last):
+  File "D:\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 145, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 143, in _get_response
+    response = response.render()
+  File "D:\python\lib\site-packages\django\template\response.py", line 105, in render
+    self.content = self.rendered_content
+  File "D:\python\lib\site-packages\django\template\response.py", line 83, in rendered_content
+    return template.render(context, self._request)
+  File "D:\python\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "D:\python\lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+  File "D:\python\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "D:\python\lib\site-packages\django\template\base.py", line 936, in render
+    bit = node.render_annotated(context)
+  File "D:\python\lib\site-packages\django\template\base.py", line 903, in render_annotated
+    return self.render(context)
+  File "D:\python\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "D:\python\lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "D:\python\lib\site-packages\django\template\base.py", line 936, in render
+    bit = node.render_annotated(context)
+  File "D:\python\lib\site-packages\django\template\base.py", line 903, in render_annotated
+    return self.render(context)
+  File "D:\python\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "D:\python\lib\site-packages\django\template\base.py", line 936, in render
+    bit = node.render_annotated(context)
+  File "D:\python\lib\site-packages\django\template\base.py", line 903, in render_annotated
+    return self.render(context)
+  File "D:\python\lib\site-packages\django\template\library.py", line 192, in render
+    output = self.func(*resolved_args, **resolved_kwargs)
+  File "D:\python\mywork\diango\Django_test\SE_test\mysite\comments\templatetags\comment_tags.py", line 12, in get_comment_count
+    content_type = ContentType.objects.get_for_model(obj)
+  File "D:\python\lib\site-packages\django\contrib\contenttypes\models.py", line 40, in get_for_model
+    opts = self._get_opts(model, for_concrete_model)
+  File "D:\python\lib\site-packages\django\contrib\contenttypes\models.py", line 27, in _get_opts
+    model = model._meta.concrete_model
+AttributeError: 'str' object has no attribute '_meta'
+ERROR 2020-10-12 14:11:29,503 log 14788 3828 Internal Server Error: /mine/blog_detail/2/
+Traceback (most recent call last):
+  File "D:\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\base.py", line 97, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\detail.py", line 106, in get
+    self.object = self.get_object()
+  File "D:\python\mywork\diango\Django_test\SE_test\mysite\mine\views.py", line 31, in get_object
+    obj = super(BlogDetailView, self).get_object()
+  File "D:\python\lib\site-packages\django\views\generic\detail.py", line 47, in get_object
+    "pk or a slug in the URLconf." % self.__class__.__name__
+AttributeError: Generic detail view BlogDetailView must be called with either an object pk or a slug in the URLconf.
+ERROR 2020-10-12 14:11:44,480 log 32 12436 Internal Server Error: /mine/blog_detail/2/
+Traceback (most recent call last):
+  File "D:\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\base.py", line 97, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\detail.py", line 106, in get
+    self.object = self.get_object()
+  File "D:\python\mywork\diango\Django_test\SE_test\mysite\mine\views.py", line 31, in get_object
+    obj = super(BlogDetailView, self).get_object()
+  File "D:\python\lib\site-packages\django\views\generic\detail.py", line 47, in get_object
+    "pk or a slug in the URLconf." % self.__class__.__name__
+AttributeError: Generic detail view BlogDetailView must be called with either an object pk or a slug in the URLconf.
+ERROR 2020-10-12 14:11:46,628 log 32 12436 Internal Server Error: /mine/blog_detail/2/
+Traceback (most recent call last):
+  File "D:\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\base.py", line 97, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\detail.py", line 106, in get
+    self.object = self.get_object()
+  File "D:\python\mywork\diango\Django_test\SE_test\mysite\mine\views.py", line 31, in get_object
+    obj = super(BlogDetailView, self).get_object()
+  File "D:\python\lib\site-packages\django\views\generic\detail.py", line 47, in get_object
+    "pk or a slug in the URLconf." % self.__class__.__name__
+AttributeError: Generic detail view BlogDetailView must be called with either an object pk or a slug in the URLconf.
+ERROR 2020-10-12 14:13:38,943 log 312 16016 Internal Server Error: /mine/blog_detail/2/
+Traceback (most recent call last):
+  File "D:\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\base.py", line 97, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\detail.py", line 106, in get
+    self.object = self.get_object()
+  File "D:\python\mywork\diango\Django_test\SE_test\mysite\mine\views.py", line 31, in get_object
+    obj = super(BlogDetailView, self).get_object()
+  File "D:\python\lib\site-packages\django\views\generic\detail.py", line 47, in get_object
+    "pk or a slug in the URLconf." % self.__class__.__name__
+AttributeError: Generic detail view BlogDetailView must be called with either an object pk or a slug in the URLconf.
+ERROR 2020-10-12 14:18:25,752 log 15876 13404 Internal Server Error: /mine/blog_detail/2/
+Traceback (most recent call last):
+  File "D:\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\base.py", line 97, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\detail.py", line 106, in get
+    self.object = self.get_object()
+  File "D:\python\mywork\diango\Django_test\SE_test\mysite\mine\views.py", line 31, in get_object
+    obj = super(BlogDetailView, self).get_object()
+  File "D:\python\lib\site-packages\django\views\generic\detail.py", line 47, in get_object
+    "pk or a slug in the URLconf." % self.__class__.__name__
+AttributeError: Generic detail view BlogDetailView must be called with either an object pk or a slug in the URLconf.
+WARNING 2020-10-12 16:29:25,875 log 15772 9308 Not Found: /favicon.ico
+ERROR 2020-10-12 16:41:44,496 log 15772 9308 Internal Server Error: /show/83/
+Traceback (most recent call last):
+  File "D:\python\lib\site-packages\django\db\backends\utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\python\lib\site-packages\django\db\backends\mysql\base.py", line 74, in execute
+    return self.cursor.execute(query, args)
+  File "D:\python\lib\site-packages\pymysql\cursors.py", line 163, in execute
+    result = self._query(query)
+  File "D:\python\lib\site-packages\pymysql\cursors.py", line 321, in _query
+    conn.query(q)
+  File "D:\python\lib\site-packages\pymysql\connections.py", line 505, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\python\lib\site-packages\pymysql\connections.py", line 724, in _read_query_result
+    result.read()
+  File "D:\python\lib\site-packages\pymysql\connections.py", line 1069, in read
+    first_packet = self.connection._read_packet()
+  File "D:\python\lib\site-packages\pymysql\connections.py", line 676, in _read_packet
+    packet.raise_for_error()
+  File "D:\python\lib\site-packages\pymysql\protocol.py", line 223, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\python\lib\site-packages\pymysql\err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.DataError: (1264, "Out of range value for column 'like_num' at row 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\mywork\diango\Django_test\SE_test\mysite\show\views.py", line 87, in letter_content
+    loveletter.save()
+  File "D:\python\lib\site-packages\django\db\models\base.py", line 746, in save
+    force_update=force_update, update_fields=update_fields)
+  File "D:\python\lib\site-packages\django\db\models\base.py", line 784, in save_base
+    force_update, using, update_fields,
+  File "D:\python\lib\site-packages\django\db\models\base.py", line 865, in _save_table
+    forced_update)
+  File "D:\python\lib\site-packages\django\db\models\base.py", line 917, in _do_update
+    return filtered._update(values) > 0
+  File "D:\python\lib\site-packages\django\db\models\query.py", line 771, in _update
+    return query.get_compiler(self.db).execute_sql(CURSOR)
+  File "D:\python\lib\site-packages\django\db\models\sql\compiler.py", line 1499, in execute_sql
+    cursor = super().execute_sql(result_type)
+  File "D:\python\lib\site-packages\django\db\models\sql\compiler.py", line 1151, in execute_sql
+    cursor.execute(sql, params)
+  File "D:\python\lib\site-packages\django\db\backends\utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "D:\python\lib\site-packages\django\db\backends\utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "D:\python\lib\site-packages\django\db\backends\utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "D:\python\lib\site-packages\django\db\backends\utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\python\lib\site-packages\django\db\utils.py", line 90, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "D:\python\lib\site-packages\django\db\backends\utils.py", line 86, in _execute
+    return self.cursor.execute(sql, params)
+  File "D:\python\lib\site-packages\django\db\backends\mysql\base.py", line 74, in execute
+    return self.cursor.execute(query, args)
+  File "D:\python\lib\site-packages\pymysql\cursors.py", line 163, in execute
+    result = self._query(query)
+  File "D:\python\lib\site-packages\pymysql\cursors.py", line 321, in _query
+    conn.query(q)
+  File "D:\python\lib\site-packages\pymysql\connections.py", line 505, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "D:\python\lib\site-packages\pymysql\connections.py", line 724, in _read_query_result
+    result.read()
+  File "D:\python\lib\site-packages\pymysql\connections.py", line 1069, in read
+    first_packet = self.connection._read_packet()
+  File "D:\python\lib\site-packages\pymysql\connections.py", line 676, in _read_packet
+    packet.raise_for_error()
+  File "D:\python\lib\site-packages\pymysql\protocol.py", line 223, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\python\lib\site-packages\pymysql\err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.DataError: (1264, "Out of range value for column 'like_num' at row 1")
+ERROR 2020-10-12 17:30:11,536 log 10564 3428 Internal Server Error: /mine/blog_detail/2/
+Traceback (most recent call last):
+  File "D:\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\base.py", line 97, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\detail.py", line 106, in get
+    self.object = self.get_object()
+  File "D:\python\mywork\diango\Django_test\SE_test\mysite\mine\views.py", line 39, in get_object
+    context = {'toc': obj.content.toc}
+AttributeError: 'str' object has no attribute 'toc'
+ERROR 2020-10-12 17:30:30,052 log 16548 5764 Internal Server Error: /mine/blog_detail/2/
+Traceback (most recent call last):
+  File "D:\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\base.py", line 97, in dispatch
+    return handler(request, *args, **kwargs)
+  File "D:\python\lib\site-packages\django\views\generic\detail.py", line 106, in get
+    self.object = self.get_object()
+  File "D:\python\mywork\diango\Django_test\SE_test\mysite\mine\views.py", line 39, in get_object
+    context = {'toc': obj.toc}
+AttributeError: 'Blog' object has no attribute 'toc'
+ERROR 2020-10-12 17:31:32,717 log 6420 4492 Internal Server Error: /show/127/
+Traceback (most recent call last):
+  File "D:\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\mywork\diango\Django_test\SE_test\mysite\show\views.py", line 71, in letter_content
+    context = {'toc': loveletter.content.toc}
+AttributeError: 'str' object has no attribute 'toc'
+ERROR 2020-10-12 17:33:10,426 log 6420 4492 Internal Server Error: /show/127/
+Traceback (most recent call last):
+  File "D:\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\mywork\diango\Django_test\SE_test\mysite\show\views.py", line 71, in letter_content
+    context = {'toc': loveletter.content.toc}
+AttributeError: 'str' object has no attribute 'toc'
+WARNING 2020-10-12 18:32:31,443 log 15492 11708 Not Found: /favicon.ico
+ERROR 2020-10-12 18:32:33,499 log 15492 11708 Internal Server Error: /show/127/
+Traceback (most recent call last):
+  File "D:\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\mywork\diango\Django_test\SE_test\mysite\show\views.py", line 68, in letter_content
+    'markdown.extensions.TOC'
+  File "D:\python\lib\site-packages\markdown\core.py", line 385, in markdown
+    md = Markdown(**kwargs)
+  File "D:\python\lib\site-packages\markdown\core.py", line 96, in __init__
+    configs=kwargs.get('extension_configs', {}))
+  File "D:\python\lib\site-packages\markdown\core.py", line 122, in registerExtensions
+    ext = self.build_extension(ext, configs.get(ext, {}))
+  File "D:\python\lib\site-packages\markdown\core.py", line 161, in build_extension
+    module = importlib.import_module(ext_name)
+  File "D:\python\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 965, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'markdown.extensions.TOC'
+ERROR 2020-10-12 18:33:32,058 log 5904 2864 Internal Server Error: /show/127/
+Traceback (most recent call last):
+  File "D:\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\mywork\diango\Django_test\SE_test\mysite\show\views.py", line 71, in letter_content
+    context = {'toc': loveletter.content.toc}
+AttributeError: 'str' object has no attribute 'toc'
+ERROR 2020-10-12 18:34:28,338 log 5284 8384 Internal Server Error: /show/127/
+Traceback (most recent call last):
+  File "D:\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\mywork\diango\Django_test\SE_test\mysite\show\views.py", line 68, in letter_content
+    'markdown.extensions.TOC',
+  File "D:\python\lib\site-packages\markdown\core.py", line 385, in markdown
+    md = Markdown(**kwargs)
+  File "D:\python\lib\site-packages\markdown\core.py", line 96, in __init__
+    configs=kwargs.get('extension_configs', {}))
+  File "D:\python\lib\site-packages\markdown\core.py", line 122, in registerExtensions
+    ext = self.build_extension(ext, configs.get(ext, {}))
+  File "D:\python\lib\site-packages\markdown\core.py", line 161, in build_extension
+    module = importlib.import_module(ext_name)
+  File "D:\python\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 965, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'markdown.extensions.TOC'
+ERROR 2020-10-12 18:35:58,465 log 9352 5444 Internal Server Error: /show/127/
+Traceback (most recent call last):
+  File "D:\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\mywork\diango\Django_test\SE_test\mysite\show\views.py", line 71, in letter_content
+    context = {'toc': loveletter.content.toc}
+AttributeError: 'str' object has no attribute 'toc'
+ERROR 2020-10-12 18:36:21,854 log 16096 568 Internal Server Error: /show/127/
+Traceback (most recent call last):
+  File "D:\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\mywork\diango\Django_test\SE_test\mysite\show\views.py", line 71, in letter_content
+    context = {'toc': md.toc}
+AttributeError: 'str' object has no attribute 'toc'
+ERROR 2020-10-12 18:36:22,304 log 16096 17044 Internal Server Error: /show/127/
+Traceback (most recent call last):
+  File "D:\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\mywork\diango\Django_test\SE_test\mysite\show\views.py", line 71, in letter_content
+    context = {'toc': md.toc}
+AttributeError: 'str' object has no attribute 'toc'
+ERROR 2020-10-12 18:37:51,491 log 16096 17044 Internal Server Error: /show/127/
+Traceback (most recent call last):
+  File "D:\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\mywork\diango\Django_test\SE_test\mysite\show\views.py", line 71, in letter_content
+    context = {'toc': md.toc}
+AttributeError: 'str' object has no attribute 'toc'
+ERROR 2020-10-12 18:38:16,100 log 17104 12468 Internal Server Error: /show/127/
+Traceback (most recent call last):
+  File "D:\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\mywork\diango\Django_test\SE_test\mysite\show\views.py", line 68, in letter_content
+    'markdown.extensions.TOC',
+  File "D:\python\lib\site-packages\markdown\core.py", line 385, in markdown
+    md = Markdown(**kwargs)
+  File "D:\python\lib\site-packages\markdown\core.py", line 96, in __init__
+    configs=kwargs.get('extension_configs', {}))
+  File "D:\python\lib\site-packages\markdown\core.py", line 122, in registerExtensions
+    ext = self.build_extension(ext, configs.get(ext, {}))
+  File "D:\python\lib\site-packages\markdown\core.py", line 161, in build_extension
+    module = importlib.import_module(ext_name)
+  File "D:\python\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 965, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'markdown.extensions.TOC'
+ERROR 2020-10-12 18:49:01,403 log 17772 6992 Internal Server Error: /show/127/
+Traceback (most recent call last):
+  File "D:\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\mywork\diango\Django_test\SE_test\mysite\show\views.py", line 71, in letter_content
+    loveletter.content = md.convert(article.body)
+NameError: name 'article' is not defined
+ERROR 2020-10-12 18:50:01,444 log 17128 17224 Internal Server Error: /show/127/
+Traceback (most recent call last):
+  File "D:\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\mywork\diango\Django_test\SE_test\mysite\show\views.py", line 73, in letter_content
+    context = {'toc': md.toc}
+AttributeError: 'str' object has no attribute 'toc'
+ERROR 2020-10-12 20:48:05,754 log 16336 9604 Internal Server Error: /show/127/
+Traceback (most recent call last):
+  File "D:\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\mywork\diango\Django_test\SE_test\mysite\show\views.py", line 68, in letter_content
+    'markdown.extensions.TOC',
+  File "D:\python\lib\site-packages\markdown\core.py", line 385, in markdown
+    md = Markdown(**kwargs)
+  File "D:\python\lib\site-packages\markdown\core.py", line 96, in __init__
+    configs=kwargs.get('extension_configs', {}))
+  File "D:\python\lib\site-packages\markdown\core.py", line 122, in registerExtensions
+    ext = self.build_extension(ext, configs.get(ext, {}))
+  File "D:\python\lib\site-packages\markdown\core.py", line 161, in build_extension
+    module = importlib.import_module(ext_name)
+  File "D:\python\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 965, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'markdown.extensions.TOC'
+ERROR 2020-10-12 20:48:19,436 log 16556 17496 Internal Server Error: /show/127/
+Traceback (most recent call last):
+  File "D:\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\mywork\diango\Django_test\SE_test\mysite\show\views.py", line 71, in letter_content
+    context = {'toc': md.toc}
+AttributeError: 'str' object has no attribute 'toc'
+ERROR 2020-10-12 20:48:38,794 log 1108 9564 Internal Server Error: /show/127/
+Traceback (most recent call last):
+  File "D:\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\mywork\diango\Django_test\SE_test\mysite\show\views.py", line 71, in letter_content
+    context = {'toc': loveletter.content.toc}
+AttributeError: 'str' object has no attribute 'toc'
+ERROR 2020-10-12 20:48:41,400 log 1108 9564 Internal Server Error: /show/127/
+Traceback (most recent call last):
+  File "D:\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\mywork\diango\Django_test\SE_test\mysite\show\views.py", line 71, in letter_content
+    context = {'toc': loveletter.content.toc}
+AttributeError: 'str' object has no attribute 'toc'
+ERROR 2020-10-12 20:48:53,818 log 880 13252 Internal Server Error: /show/127/
+Traceback (most recent call last):
+  File "D:\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\mywork\diango\Django_test\SE_test\mysite\show\views.py", line 71, in letter_content
+    context = {'toc': loveletter.content.toc}
+AttributeError: 'str' object has no attribute 'toc'
+ERROR 2020-10-12 20:49:05,916 log 17272 15404 Internal Server Error: /show/127/
+Traceback (most recent call last):
+  File "D:\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\mywork\diango\Django_test\SE_test\mysite\show\views.py", line 72, in letter_content
+    context = {'toc': md.toc}
+NameError: name 'md' is not defined
+ERROR 2020-10-12 20:51:23,112 log 2900 4556 Internal Server Error: /show/127/
+Traceback (most recent call last):
+  File "D:\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\mywork\diango\Django_test\SE_test\mysite\show\views.py", line 69, in letter_content
+    'markdown.extensions.TOC',
+  File "D:\python\lib\site-packages\markdown\core.py", line 385, in markdown
+    md = Markdown(**kwargs)
+  File "D:\python\lib\site-packages\markdown\core.py", line 96, in __init__
+    configs=kwargs.get('extension_configs', {}))
+  File "D:\python\lib\site-packages\markdown\core.py", line 122, in registerExtensions
+    ext = self.build_extension(ext, configs.get(ext, {}))
+  File "D:\python\lib\site-packages\markdown\core.py", line 161, in build_extension
+    module = importlib.import_module(ext_name)
+  File "D:\python\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 965, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'markdown.extensions.TOC'
+ERROR 2020-10-12 20:51:59,328 log 10496 4956 Internal Server Error: /show/127/
+Traceback (most recent call last):
+  File "D:\python\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "D:\python\lib\site-packages\django\core\handlers\base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\mywork\diango\Django_test\SE_test\mysite\show\views.py", line 69, in letter_content
+    'markdown.extensions.toc ',
+  File "D:\python\lib\site-packages\markdown\core.py", line 385, in markdown
+    md = Markdown(**kwargs)
+  File "D:\python\lib\site-packages\markdown\core.py", line 96, in __init__
+    configs=kwargs.get('extension_configs', {}))
+  File "D:\python\lib\site-packages\markdown\core.py", line 122, in registerExtensions
+    ext = self.build_extension(ext, configs.get(ext, {}))
+  File "D:\python\lib\site-packages\markdown\core.py", line 161, in build_extension
+    module = importlib.import_module(ext_name)
+  File "D:\python\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1006, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 983, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 965, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'markdown.extensions.toc '

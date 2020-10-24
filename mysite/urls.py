@@ -11,7 +11,7 @@ urlpatterns = [
     path('ckeditor', include('ckeditor_uploader.urls')),
     path('mdeditor', include('mdeditor.urls')),
     path('user/', include('user.urls')),
-    path('school/', include('school.urls')),
+    path('mine/', include('mine.urls')),
     path('comments/', include('comments.urls')),
     path('like/', include('like.urls')),
     path('accounts/', include('allauth.urls')),

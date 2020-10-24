@@ -12,8 +12,10 @@
         
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
             integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-        <script src="{% static "js/jquery-3.5.1.js" %}"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+        
+        <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+        <!-- <script src="{% static "js/jquery-3.5.1.js" %}"></script> -->
 
         <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
@@ -30,17 +32,22 @@
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="{% url 'home' %}">首页</a>
-                    <a class="navbar-brand" href="{% url 'letter_list' %}">广场</a>
+                    <ul class="nav navbar-nav">
+                        <li><a class="navbar-brand" href="{% url 'home' %}">首页</a></li>
+                        <li><a class="navbar-brand" href="{% url 'letter_list' %}">广场</a></li>
+                        <li class="dropdown">
+                            <a href="#" class=" navbar-brand" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                aria-expanded="false">关于 <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a class="font-ram text-black-50 py-2" href="{% url 'mine' %}">博主</a></li>
+                                
+                                <li role="separator" class="divider"></li>
+                                <li><a class="font-ram text-black-50 py-2" href="{% url 'blog_list' %}">博客</a></li>
+                            </ul>
+                    </ul>
                     <!-- <a class="navbar-brand" href="{% url 'message' %}" ">留言板</a> -->
                 </div>
+                
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">

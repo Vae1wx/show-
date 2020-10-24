@@ -1,0 +1,374 @@
+
+{% load static %}
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-161006449-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-161006449-1');
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About me</title>
+    
+   
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://www.5g-o.com/codedesign/wp-content/uploads/2020/02/style.css">
+</head>
+<body>
+    
+    <!-- header area -->
+    <header id="header">
+        <div class="row m-0">
+            <div class="col-3 bgcolor-black">
+                <nav class="primary-nav navbar-expand-md">
+                    <div class="site-title text-center text-light py-5">
+                        <a href="{% url 'home' %}" class="navbar-brand font-staat font-size-40">薛定谔's cat</a>
+                        <p class="description text-uppercase font-os">个人页</p>
+                    </div>
+                    <div class="d-flex flex-column">
+                        <a href="#home" class="nav-item nav-link text-white-50 font-os font-size-16 active">欢迎</a>
+                        <a href="#about_me" class="nav-item nav-link text-white-50 font-os font-size-16 active">资料卡</a>
+                        <a href="#services" class="nav-item nav-link text-white-50 font-os font-size-16 active">技能点</a>
+                        <a href="#work" class="nav-item nav-link text-white-50 font-os font-size-16 active">工作经验</a>
+                        <a href="#portfolio" class="nav-item nav-link text-white-50 font-os font-size-16 active">学校经历</a>
+                        <a href="#news" class="nav-item nav-link text-white-50 font-os font-size-16 active">工作经历</a>
+                        <a href="#footer" class="nav-item nav-link text-white-50 font-os font-size-16 active">心路历程</a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <button class="toggle-button"><span class="fas fa-bars fa-2x"></span></button>
+        <div class="social">
+            <span class="mr-3"><i class="fab fa-facebook-f"></i></span>
+            <span class="mr-3"><i class="fab fa-twitter"></i></span>
+            <span class="mr-3"><i class="fab fa-instagram"></i></span>
+            <span class="mr-3"><i class="fab fa-youtube"></i></span>
+        </div>
+    </header>
+    <!-- #header area -->
+    
+    <main id="site-main">
+        <div class="row m-0">
+            <div class="col-md-9 offset-md-3 px-0">
+
+                <!-- site-banner area -->
+                <section class="site-banner" id="home">
+                    <div class="banner-area">
+                        <div class="author text-center">
+                            <div class="author-img"></div>
+                            <h1 class="text-white font-staat font-size-40 text-uppercase py-3">欢迎光临小站，您可以先记住我的名字</h1>
+                            <h5 class="text-white font-ram font-size-27"> <span id="typed"></span></h5>
+                        </div>
+                    </div>
+                </section>
+                <!-- #site-banner area -->
+
+                <!-- about me area -->
+                    <section class="about px-4 my-5" id="about_me">
+                        <div class="me py-5">
+                            <h5 class="text-uppercase font-os font-size-16 text-muted">个人简介</h5>
+                            <h1 class="text-uppercase font-staat font-size-34">About Me</h1>
+                        </div>
+                        <div class="row m-0">
+                            
+                            <div class="col-sm-6">
+                                <h5 class="font-ram font-size-20 py-2"> <span id="typed_2">我的名字：</span>王旭</h5>
+                                <p class="font-ram text-black-50 py-2" style="text-indent: 2em">
+                                   一个喜欢音乐、网游，热爱编程，喜欢技术的普通但不浮躁的青年。不抽烟，不喝酒，自律。
+                                    
+                                </p>
+                                <div class="d-flex flex-row flex-wrap justify-content-between py-4">
+                                    <div class="d-flex flex-column">
+                                        <p class="font-ram"><b>年龄: </b><span class="text-black-50">24</span></p>
+                                        <p class="font-ram"><b>工作经验: </b><span class="text-black-50">2年</span></p>
+                                        <p class="font-ram"><b>电话: </b><span class="text-black-50">18801302997</span></p>
+                                        <p class="font-ram"><b>现居地: </b><span class="text-black-50">北京市</span></p>
+                                    </div>
+                                    <div class="d-flex flex-column">
+                                        <p class="font-ram"><b>毕业院校: </b><span class="text-black-50">首钢工学院</span></p>
+                                        <p class="font-ram"><b>所学专业: </b><span class="text-black-50">计算机网络</span></p>
+                                        <p class="font-ram"><b>邮箱: </b><span class="text-black-50">1103913822@qq.com</span></p>
+                                        <p class="font-ram"><b>毕业时间: </b><span class="text-black-50">2019.06</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                <!-- #about me area -->
+
+                <!-- 技能 -->
+                    <section class="skill px-4 py-5 bg-light" id="services">
+                        <div class="ability py-3">
+                            <h1 class="text-uppercase font-staat font-size-34">我的技能</h1>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 pl-4">
+                                <div class="bar-1 mb-4">
+                                    <div class="d-flex flex-row justify-content-between">
+                                        <p class="font-ram font-size-16">python</p>
+                                        <span class="font-ram font-size-16">70%</span>
+                                    </div>
+                                    <div class="progress" style="height: 3px;">
+                                        <div class="progress-bar bgcolor-black" role="progressbar" style="width:70%"></div>
+                                    </div>
+                                </div>
+                                <div class="bar-1 mb-4">
+                                    <div class="d-flex flex-row justify-content-between">
+                                        <p class="font-ram font-size-16">Django</p>
+                                        <span class="font-ram font-size-16">60%</span>
+                                    </div>
+                                    <div class="progress" style="height: 3px;">
+                                        <div class="progress-bar bgcolor-black" role="progressbar" style="width:60%"></div>
+                                    </div>
+                                </div>
+                                <div class="bar-1 mb-4">
+                                    <div class="d-flex flex-row justify-content-between">
+                                        <p class="font-ram font-size-16">JavaScript</p>
+                                        <span class="font-ram font-size-16">40%</span>
+                                    </div>
+                                    <div class="progress" style="height: 3px;">
+                                        <div class="progress-bar bgcolor-black" role="progressbar" style="width:40%"></div>
+                                    </div>
+                                </div>
+
+                                 <div class="bar-1 mb-4">
+                                    <div class="d-flex flex-row justify-content-between">
+                                        <p class="font-ram font-size-16">sql</p>
+                                        <span class="font-ram font-size-16">40%</span>
+                                    </div>
+                                    <div class="progress" style="height: 3px;">
+                                        <div class="progress-bar bgcolor-black" role="progressbar" style="width:40%"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-sm-6 pl-4">
+                                <div class="bar-1 mb-4">
+                                    <div class="d-flex flex-row justify-content-between">
+                                        <p class="font-ram font-size-16">Redis</p>
+                                        <span class="font-ram font-size-16">30%</span>
+                                    </div>
+                                    <div class="progress" style="height: 3px;">
+                                        <div class="progress-bar bgcolor-black" role="progressbar" style="width:30%"></div>
+                                    </div>
+                                </div>
+                                <div class="bar-1 mb-4">
+                                    <div class="d-flex flex-row justify-content-between">
+                                        <p class="font-ram font-size-16">git</p>
+                                        <span class="font-ram font-size-16">60%</span>
+                                    </div>
+                                    <div class="progress" style="height: 3px;">
+                                        <div class="progress-bar bgcolor-black" role="progressbar" style="width:60%"></div>
+                                    </div>
+                                </div>
+                                <div class="bar-1 mb-4">
+                                    <div class="d-flex flex-row justify-content-between">
+                                        <p class="font-ram font-size-16">Linux</p>
+                                        <span class="font-ram font-size-16">50%</span>
+                                    </div>
+                                    <div class="progress" style="height: 3px;">
+                                        <div class="progress-bar bgcolor-black" role="progressbar" style="width:50%"></div>
+                                    </div>
+                                </div>
+
+                                 <div class="bar-1 mb-4">
+                                    <div class="d-flex flex-row justify-content-between">
+                                        <p class="font-ram font-size-16">部署</p>
+                                        <span class="font-ram font-size-16">30%</span>
+                                    </div>
+                                    <div class="progress" style="height: 3px;">
+                                        <div class="progress-bar bgcolor-black" role="progressbar" style="width:30%"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            
+                        </div>
+                    </section>
+                <!-- #技能 -->
+
+                <!-- 项目经验 -->
+                    <section class="services-area px-4 py-5" id="work">
+                        <div class="do py-5">
+                            <h1 class="text-uppercase font-staat font-size-34">项目经验</h1>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 col-sm-6 mb-4 text-center">
+                                <div class="panel border p-4">
+                                    <span class="icon text-secondary"><i class="fas fa-laptop fa-3x"></i></span>
+                                    <h4 class="font-ram py-4">个人博客系统</h4>
+                                    <p class="font-ram font-size-16 text-black-50">
+                                       基于 Python 的 Web 框架 Django 开发的博客系统，采用 Django + MySQL + Nginx + uwsgi 部署。
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6 mb-4 text-center">
+                                <div class="panel border p-4">
+                                    <span class="icon text-secondary"><i class="far fa-heart fa-3x"></i></span>
+                                    <h4 class="font-ram py-4">校园表白网站</h4>
+                                    <p class="font-ram font-size-16 text-black-50">
+                                        基于 Python 的 Web 框架 Django 开发的校园表白网站，用户可以发布、修改、查询或删除表白信息。
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6 mb-4 text-center">
+                                <div class="panel border p-4">
+                                    <span class="icon text-secondary"><i class="fas fa-bug fa-3x"></i></span>
+                                    <h4 class="font-ram py-4">豆瓣爬虫</h4>
+                                    <p class="font-ram font-size-16 text-black-50">
+                                        基于 scrapy 爬取豆瓣网电影信息，并把结果保存到本地。
+                                    </p>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </section>
+                <!-- #项目经验 -->
+
+
+
+                <!-- 学校经历 -->
+                    <section class="work py-5 px-4" id="portfolio">
+                        <div class="py-3">
+                            <h1 class="text-uppercase font-staat font-size-34">学校经历</h1>
+                        </div>
+                        <div class="row">
+                            
+
+                            <div class="row m-0">
+                                <div class="col-sm-5 pl-0">
+                                    <img src="{% static "certificate.jpg" %}" class="card-img" alt="...">
+                                </div>
+                                <div class="col-sm-6">
+                                    <h5 class="font-ram font-size-18 py-2">曾任职位：</h5>
+                                    <h3 class="text-uppercase font-staat font-size-20 " style="text-indent: 2em">学生处主席、学生会主席团成员、新生班级助理</h3>
+                                    
+                                    
+                                    <h5 class="font-ram font-size-18 py-2">曾获荣誉：</h5>
+                                    <h3 class="text-uppercase font-staat font-size-20 " style="text-indent: 2em">院三好学生、系三好学生、优秀学生干部、优秀团干部、优秀团员、校园之星、国家励志奖学金、一等奖学金、二等奖学金、三等奖学金。</h3>
+                                    <p class="card-text" style="text-indent: 2em">
+                                        大学期间，我在学生会主席团工作过，也在学生处任主席职位，帮助老师处理各项事务。负责学校勤工俭学系统、在校学生保险系统、
+                                        在校大学生资助系统、在校人员异动情况系统等。举办过老乡会，多次参与志愿者活动和无偿献血活动。</p>
+                                </div>
+                                
+                            </div>
+                           
+                    </section>
+                <!-- #学校经历 -->
+
+                <!-- 工作经历 -->
+                        <section class="news py-5 px-4 bg-light" id="news">
+                            <div class="py-3">
+                                <h1 class="text-uppercase font-staat font-size-34">工作经历</h1>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4 my-3">
+                                    <div class="card border-0">
+                                        <img src="https://www.5g-o.com/codedesign/wp-content/uploads/2020/02/01.jpg" alt="news1" class="card-img-top">
+                                        <div class="card-body">
+                                            <p class="font-ram font-size-16 text-black-50">公司名称：<b class="text-uppercase text-dark">乐博乐博教育有限公司 </b></p>
+                                            <p class="card-title font-ram">少儿编程讲师</p>
+                                            <p class="cart-text text-black-50">
+                                                1.  教授孩子编程相关知识，并运用到单片机、树莓派等硬件上。线下课程包括：单片机机器人、人形机器人、树莓派机器人等。线上课程包括：scratch、python。对机器人结构进行设计，合理的把程序任务结合到传感器上让机器人可以完成预定的任务。</p>
+                                            <p class="cart-text text-black-50">2.  指导学员参加全国机器人比赛、少儿编程等一系列赛事以及等级考试培训。</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 my-3">
+                                    <div class="card border-0">
+                                        <img src="https://www.5g-o.com/codedesign/wp-content/uploads/2020/02/02.jpg" alt="news1" class="card-img-top">
+                                        <div class="card-body">
+                                            <p class="font-ram font-size-16 text-black-50">公司名称：<b class="text-uppercase text-dark">中石商联广告有限公司 </b></p>
+                                            <p class="card-title font-ram">网络部职员</p>
+                                            <p class="cart-text text-black-50">
+                                               1.   关注当下热点事件，结合时事进行新闻编辑并推送给用户。</p>
+                                            <p class="cart-text text-black-50">2.  维护公司官方网站及媒体矩阵。</p>
+                                            <p class="cart-text text-black-50">3.  通过对客户产品的了解，介绍产品优势投放到网络。
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 my-3">
+                                    <div class="card border-0">
+                                        <img src="https://www.5g-o.com/codedesign/wp-content/uploads/2020/02/03.jpg" alt="news1" class="card-img-top">
+                                        <div class="card-body">
+                                            <p class="font-ram font-size-16 text-black-50">公司名称： <b class="text-uppercase text-dark">贵公司</b></p>
+                                            <h5 class="card-title font-ram">python开发</h5>
+                                            <p class="cart-text text-black-50">
+                                               认真完成自己的本职工作，充分发挥自己的能力。坚持学习，不断优化自己的代码。
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                <!-- #工作经历 -->
+
+                <footer id="footer" class="pt-5 px-3">
+                    <div id="contact_us">
+                        <div class="py-3 px-2">
+                            <h1 class="text-uppercase font-staat font-size-34">心路历程</h1>
+                        </div>
+                        <div class="row py-5">
+                            <div class="col-sm-12">
+                                <p class="font-ram font-size-18 py-2">第一份实习工作：自媒体。</p>
+                                <p class="font-ram w-50 font-size-16 text-black-50" style="text-indent: 2em">临近毕业，不知道自己应该选择什么样的工作。对找工作的范围只定在电脑相关就可以。
+                                    恰逢同学介绍，正好自己也正在做自媒体，便决定试试。
+                                    工作方面自己做的很好，同事之间相处的很融洽。
+                                    但实习期间未签订劳动合同，工资压两个月后上级矢口否认实习开始时确定的薪资。故离职。</p>
+                                <p class="font-ram font-size-18 py-2">第二份工作：少儿编程教师。</p>
+                                <p class="font-ram w-50 font-size-16 text-black-50" style="text-indent: 2em">从实习单位离职后，决定试试自己大学专业的一个方向——程序员。故开始学习python。
+                                    毕业后进入一家机器人教育公司。因为可以接触机器人，还能提升编程功底。在该公司工作一年后，在疫情期间离职，选择在家自学提升。</p>
+                                <p style="text-indent: 2em">这段时间，用`turtle库`做过几个简单的小游戏，也用`request库`爬取过网站图片。用`scrapy`爬过豆瓣，然后开始学习Django。跟着教程做了一个项目，
+                                    自己动手又做了两个项目。当然，中间少不了静心学习和苦逼找bug的时光。这段时间我也明白了，编程才是我最喜欢的工作，程序员才是我最想要的称号！</p>
+                                <p class="font-ram font-size-16 text-black-50 pt-3">手机：18801302997</p>
+                                <p class="font-ram font-size-16 text-black-50">微信: w1103913822</p>
+                                <p class="font-ram font-size-16 text-black-50">邮箱: 1103913822@qq.com</p>
+                                
+                            </div>
+                        </div>
+                        <div class="row bg-light py-5" style="justify-content: center;">
+                            <div class="footer-title">
+                                <h6 class="font-ram font-size-16 text-black-50">薛定谔的小站</h6>
+
+                                <a href="https://github.com/Vae1wx/" class="tooltipped" target="_blank" data-toggle="tooltip" data-placement="top" title="访问我的GitHub" rel="external nofollow noopener noreferrer"><i class="fab fa-github"></i> </a>
+                                <a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=1103913822" class="tooltipped" target="_blank" data-toggle="tooltip" data-placement="top" title="QQ 联系我: 1103913822"><i class="fab fa-qq"></i> </a>
+                                <a href="https://blog.csdn.net/m0_47812755" class="tooltipped" target="_blank" data-toggle="tooltip" data-placement="top" title="关注我的CSDN博客" rel="external nofollow noopener noreferrer"><i class="fa fa-bold"></i> </a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </main>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js" integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0=" crossorigin="anonymous"></script>
+
+<script src="{% static "info.js" %}"></script>
+
+<script src="https://www.5g-o.com/codedesign/wp-content/uploads/2020/02/index.js"></script>
+
+</body>
+</html>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f6bb13b65a19b6127221eae1e4fa5028";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>

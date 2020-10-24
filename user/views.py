@@ -117,7 +117,7 @@ def image_code(request):
     from io import BytesIO
     img = Image.new(mode='RGB', size=(150, 30), color=(255, 255, 255))
     draw = ImageDraw.Draw(img, mode='RGB')
-    font = ImageFont.truetype('user\static\kumo.ttf', size=30)
+    font = ImageFont.truetype('collected_static\kumo.ttf', size=30)
     code = ''.join(random.sample(string.ascii_letters +
                                  string.digits, 4)) 
     request.session["verCode"] = code

@@ -10,4 +10,15 @@ def get_like_count(obj):
     content_type = ContentType.objects.get_for_model(obj)
     like_count, created = LikeCount.objects.get_or_create(
         content_type=content_type, object_id=obj.pk)
+
+    return like_count.like_num
+
+
+@register.simple_tag
+def dzzz(obj):
+    content_type = ContentType.objects.get_for_model(obj)
+    like_count, created = LikeCount.objects.get_or_create(
+        content_type=content_type, object_id=obj.pk)
+    like_count.like_num += 1
+    like_count.save()
     return like_count.like_num
